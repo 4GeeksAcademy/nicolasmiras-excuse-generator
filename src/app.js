@@ -10,14 +10,11 @@ window.onload = function() {
   let what = ['my homework', 'my phone', 'the car'];
   let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
 
-  function randomFunction() {
-    let w = who[Math.floor(Math.random() * who.length)];
-    let a = action[Math.floor(Math.random() * action.length)];
-    let wh = what[Math.floor(Math.random() * what.length)];
-    let wn = when[Math.floor(Math.random() * when.length)];
-    return `${w} ${a} ${wh} ${wn}`;
+  function generateExcuse() {
+    let randomNumber = arr => arr[Math.floor(Math.random() * arr.length)];
+    return `${randomNumber(who)} ${randomNumber(action)} ${randomNumber(what)} ${randomNumber(when)}.`;
   }
 
-  document.getElementById("excuse").innerText = randomFunction();
-
-  };
+  const excuse = generateExcuse();
+  document.getElementById("excuse").innerText = excuse;
+};
